@@ -1,0 +1,6 @@
+[global]
+include = ["/README.md", "content/**/*.md"]
+
+[MD013]
+reflow = true
+reflow-mode = "normalize"

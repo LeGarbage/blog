@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "post_macros.html" as post_macros %}
+
+{% block title %}
+{{ page.title }} | {{ config.title }}
+{% endblock title %}
+
+{% block content %}
+<article>
+    {{ post_macros::header(page=page, heading="h1", is_link=false) }}
+    {{ page.content | safe }}
+</article>
+{% endblock content %}

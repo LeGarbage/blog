@@ -1,0 +1,48 @@
+$gray1: #282c34;
+$gray2: #31353f;
+$gray3: #393f4a;
+$gray4: #5c6370;
+$gray5: #abb2bf;
+$red: #e86671;
+$green: #98c379;
+$yellow: #e5c07b;
+$blue: #61afef;
+$blue2: #5873dd;
+$purple: #c678dd;
+$cyan: #56b6c2;
+$orange: #d19a66;
+$indigo: #7681de;
+$pink: #ff69b4;
+$warning: #d6a940;
+$error: #de3758;
+$info: #13b0bf;
+$hint: #4ab235;
+
+@mixin floating-box {
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background-color: $gray1;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  a.title-link:hover {
+    text-decoration: none;
+
+    .title {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin floating-base {
+  max-width: 900px;
+  background-color: $gray2;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}

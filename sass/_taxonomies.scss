@@ -1,0 +1,30 @@
+@use 'variables' as *;
+
+a.tag-link {
+  color: $green;
+}
+
+.taxonomy-list {
+  @include floating-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+span.tag {
+  color: $green;
+}
+
+span.tag-title {
+  color: $green;
+  text-decoration: underline;
+}
+
+span.page-count {
+  color: $gray4;
+}

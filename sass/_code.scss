@@ -1,0 +1,76 @@
+@use 'variables' as *;
+
+code {
+  background-color: $gray1;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  font-size: 85%;
+  color: $indigo;
+}
+
+pre.giallo:not(:has(code[data-lang="plain"])) {
+  display: block;
+  position: relative;
+  padding: 0;
+  overflow-y: hidden;
+  border-radius: 6px;
+  font-size: 85%;
+
+  .info-box {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid $gray4;
+    padding: 10px;
+    position: sticky;
+    left: 0;
+
+    .code-lang,
+    .code-file {
+      margin: 0;
+      color: $gray4;
+    }
+
+    .code-lang {
+      margin-right: auto;
+    }
+
+    .copy-button {
+      width: 4.5rem;
+      padding: 3px 8px;
+      background-color: $gray3;
+      color: $gray5;
+      border-radius: 6px;
+      border: none;
+
+      &:hover {
+        background-color: $gray4;
+        color: $gray1;
+      }
+    }
+  }
+
+  code {
+    display: block;
+    padding: 10px 0;
+    overflow-x: auto;
+    overscroll-behavior-x: none;
+    font-size: 100%;
+
+    // Mandatory Giallo styling (https://www.getzola.org/documentation/content/syntax-highlighting/)
+    .giallo-l {
+      display: inline-block;
+      min-height: 1lh;
+      padding-inline: 10px;
+    }
+
+    .giallo-ln {
+      display: inline-block;
+      min-width: 2ch;
+      margin-inline-end: 20px;
+      text-align: end;
+      user-select: none;
+    }
+  }
+}

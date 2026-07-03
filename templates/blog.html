@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "post_macros.html" as post_macros %}
+
+{% block content %}
+{% if section.content %}
+    <header class="title">
+        {{ section.content | safe }}
+    </header>
+{% endif %}
+
+{% for page in section.pages %}
+    {{ post_macros::excerpt(page=page) }}
+{% endfor %}
+{% endblock content %}

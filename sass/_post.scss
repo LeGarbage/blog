@@ -1,0 +1,36 @@
+@use 'variables' as *;
+
+article.post {
+  @include floating-box;
+
+  code {
+    background-color: $gray2;
+  }
+}
+
+.post-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.footnotes {
+  border-top: 1px solid $gray4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .post-anchor {
+    visibility: hidden;
+    margin-inline-start: 10px;
+  }
+
+  &:hover {
+    .post-anchor {
+      visibility: visible;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "post_macros.html" as post_macros %}
+
+{% block title %}
+Archive | {{ config.title }}
+{% endblock title %}
+
+{% block content %}
+<header class="title">
+    {{ section.content | safe }}
+</header>
+{% set section = get_section(path="_index.md") %}
+{% for year, posts in section.pages | group_by(attribute="year") %}
+<section class="archive-section">
+    <h2 class="archive-year">{{ year }}</h2>
+    {% for page in posts %}
+    {{ post_macros::archive_link(page=page) }}
+    {% endfor %}
+</section>
+{% endfor %}
+{% endblock content %}

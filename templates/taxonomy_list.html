@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ taxonomy.name | title }} | {{ config.title }}
+{% endblock title %}
+
+{% block content %}
+<header class="title">
+    <h1>{{ taxonomy.name | title }}</h1>
+</header>
+
+<div class="taxonomy-list">
+    {% for term in terms %}
+    {% set page_count = [term.page_count ~ " post", term.page_count | pluralize] | join %}
+    <h2>
+        <a rel="tag" href="{{ term.permalink | safe }}" class="title-link">
+            <span class="tag title">#{{ term.name }}</span>
+            <span class="page-count">({{ page_count }})</span>
+        </a>
+        <a href="{{ term.name ~ "/atom.xml" }}" class="feed-link">
+            <svg class="icon">
+                <use href="/images/rss.svg#Layer_1" />
+            </svg>
+        </a>
+    </h2>
+    {% endfor %}
+</div>
+{% endblock content %}

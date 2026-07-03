@@ -1,0 +1,44 @@
+{% macro excerpt(page) %}
+<article class="post">
+    {{ self::header(page=page, heading="h2") }}
+    {% if page.summary %}
+    <p>{{ page.summary | safe }}</p>
+    <a class="read-more" href="{{ page.permalink ~ "#continue-reading" | safe }}">Read more →</a>
+    {% endif %}
+</article>
+{% endmacro %}
+
+{% macro header(page, heading, is_link=true) %}
+<header>
+    <{{ heading }} class="post-title">
+        {% if is_link %}
+        <a href="{{ page.permalink | safe }}" class="title-link">
+            {% endif %}
+            <span class="title">{{ page.title }}</span>
+            <span class="time">{{ self::date(value=page.date) }}</span>
+        </a>
+    </{{ heading }}>
+
+    {% if page.taxonomies %}
+    <div class="post-tags">
+        {%- for tag in page.taxonomies.tags | default(value=[]) %}
+        {% set tag_url = get_taxonomy_url(kind="tags", name=tag) -%}
+        <a rel="tag" href="{{ tag_url | safe }}" class="tag-link">#{{ tag }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</header>
+{% endmacro %}
+
+{% macro archive_link(page) %}
+<h3 class="archive-title">
+    <a href="{{ page.permalink | safe }}" class="title-link">
+        <span class="time">{{ self::date(value=page.date, format="%b %d") }}</span>
+        <span class="title">{{ page.title }}</span>
+    </a>
+</h3>
+{% endmacro %}
+
+{% macro date(value, format="%F") %}
+<time datetime="{{ value }}">{{ value | date(format=format) }}</time>
+{% endmacro %}

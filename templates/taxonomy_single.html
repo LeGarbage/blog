@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% import "post_macros.html" as post_macros %}
+
+{% block title %}
+#{{ term.name }} | {{ config.title }}
+{% endblock title %}
+
+{% block feed %}
+<link rel="alternate" type="application/atom+xml" title="Atom feed" href="{{ get_url(path="atom.xml", trailing_slash=false)}}">
+{% set rss_path = "tags/" ~ term.name ~ "/atom.xml" %}
+<link rel="alternate" type="application/atom+xml" title="{{ "Atom feed - " ~ term.name }}"
+    href="{{ get_url(path=rss_path, trailing_slash=false) }}">
+{% endblock feed %}
+
+{% block content %}
+<header class="title">
+    <h1>
+        Posts for <span class="tag-title">#{{ term.name | safe }}</span>
+        <a href="{{ "atom.xml" }}" class="feed-link">
+            <svg class="icon">
+                <use href="/images/rss.svg#Layer_1" />
+            </svg>
+        </a>
+    </h1>
+</header>
+
+{% for page in term.pages %}
+{{ post_macros::excerpt(page=page) }}
+{% endfor %}
+{% endblock content %}

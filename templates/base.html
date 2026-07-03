@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+        {{ config.title }}
+        {% endblock title %}
+    </title>
+
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path="images/favicon.ico") }}">
+
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+    {% block feed %}
+    <link rel="alternate" type="application/atom+xml" title="Atom feed" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
+    {% endblock feed %}
+
+    <script src="{{ get_url(path="js/code-block.js") }}" defer></script>
+</head>
+
+<body>
+    <nav>
+        <a href="https://legarbage.github.io">home</a>
+        <a href="{{ get_url(path="/", trailing_slash=true) }}">blog</a>
+        {% set archive = get_section(path="archive/_index.md") %}
+        <a href="{{ archive.permalink }}">archive</a>
+        {% set tags = get_taxonomy(kind="tags") %}
+        <a href="{{ tags.permalink }}">tags</a>
+        <a href="{{ get_url(path="atom.xml", trailing_slash=false) }}">feed</a>
+    </nav>
+    <main id="main">
+        {% block content %} {% endblock content %}
+    </main>
+    <footer>
+        <nav>
+            <a href="#">top</a>
+            <a href="{{ get_url(path="atom.xml", trailing_slash=false) }}">feed</a>
+            <a href="https://github.com/legarbage">github</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

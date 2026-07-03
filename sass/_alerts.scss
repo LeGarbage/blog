@@ -1,0 +1,26 @@
+@use 'variables' as *;
+
+@mixin alert-type($type, $color) {
+  border-left: 5px solid $color;
+
+  &::before {
+    content: $type;
+    text-transform: capitalize;
+    color: $color;
+    font-weight: bold;
+    display: block;
+  }
+}
+
+blockquote {
+  padding: 20px;
+  background-color: $gray1;
+  border-left: 5px solid $gray4;
+  border-radius: 6px;
+}
+
+@each $type, $color in ('note': $info, 'tip': $hint, 'important': $red, 'warning': $warning, 'caution': $error) {
+  blockquote.markdown-alert-#{$type} {
+    @include alert-type($type, $color);
+  }
+}
