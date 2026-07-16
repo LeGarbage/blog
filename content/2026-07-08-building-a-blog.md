@@ -9,21 +9,20 @@ decide to make everything more complicated than it needs to be.
 
 <!-- more -->
 
-## The site
+## Zola
 
-This bog was built using [Zola](https://www.getzola.org/). Zola is a static site
-generator written in Rust. It uses the [Tera](https://keats.github.io/tera/)
-template engine to convert Markdown content into static HTML which can then be
-hosted on a service such as [GitHub Pages](https://docs.github.com/pages). The
-reason I chose Zola over something like [Hugo](https://gohugo.io/) or
-[Jekyll](https://jekyllrb.com/) is quite simple: it is written in Rust. You may
-be wondering why I would ever choose a tool based on what language it was
-written, but it makes slightly more sense in context. You see, I had just
-finished rewriting my main website homepage to use Rust via WebAssembly, and I
-naively thought that having my blog generator written in the same language would
-make them somehow easier to integrate and host together. While that quickly
-proved not to be the case, Zola itself gave me no reason to use anything else,
-so I stuck with it.
+[Zola](https://www.getzola.org/) is a static site generator written in Rust. It
+uses the [Tera](https://keats.github.io/tera/) template engine to convert
+Markdown content into static HTML which can then be hosted on a service such as
+[GitHub Pages](https://docs.github.com/pages). The reason I chose Zola over
+something like [Hugo](https://gohugo.io/) or [Jekyll](https://jekyllrb.com/) is
+quite simple: it is written in Rust. You may be wondering why I would ever
+choose a tool based on what language it was written, but it makes slightly more
+sense in context. You see, I had just finished rewriting my main website
+homepage to use Rust via WebAssembly, and I naively thought that having my blog
+generator written in the same language would make them somehow easier to
+integrate and host together. While that quickly proved not to be the case, Zola
+itself gave me no reason to use anything else, so I stuck with it.
 
 Building my blog in Zola was smooth for the most part, except for a couple
 things. First, I did not enjoy working with the Tera templating language. The
