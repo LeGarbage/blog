@@ -4,10 +4,14 @@ title = "Buy a $70 Thinkpad"
 tags=["thinkpad", "linux"]
 +++
 
-You should buy a used Thinkpad. Seriously. Go on Ebay right now and search for a
-Thinkpad. No matter who you are, I promise it will be worth it. The durability
-and longevity of Tinkpads means you can spend as little as $70 and have a solid
-machine that will further last you years.
+You should buy a used Thinkpad.
+
+<!-- more -->
+
+Seriously. Go on Ebay right now and search for a Thinkpad. No matter who you
+are, I promise it will be worth it. The durability and longevity of Tinkpads
+means you can spend as little as $70 and have a solid machine that will further
+last you years.
 
 ## Why?
 
